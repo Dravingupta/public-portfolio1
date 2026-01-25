@@ -1,0 +1,58 @@
+import { useEffect, useRef } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+
+function Scene3D({ children }) {
+    const canvasRef = useRef();
+
+    useEffect(() => {
+        const handleContextLost = (event) => {
+            event.preventDefault();
+            console.log('WebGL context lost. Attempting to restore...');
+        };
+
+        const handleContextRestored = () => {
+            console.log('WebGL context restored successfully.');
+        };
+
+        const canvas = canvasRef.current?.querySelector('canvas');
+        if (canvas) {
+            canvas.addEventListener('webglcontextlost', handleContextLost);
+            canvas.addEventListener('webglcontextrestored', handleContextRestored);
+
+            return () => {
+                canvas.removeEventListener('webglcontextlost', handleContextLost);
+                canvas.removeEventListener('webglcontextrestored', handleContextRestored);
+            };
+        }
+    }, []);
+
+    return (
+        <div ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+            <Canvas
+                camera={{ position: [0, 0, 5], fov: 75 }}
+                gl={{
+                    preserveDrawingBuffer: true,
+                    antialias: true,
+                    powerPreference: 'high-performance'
+                }}
+                onCreated={({ gl }) => {
+                    gl.setClearColor('#000000', 1);
+                }}
+            >
+                <ambientLight intensity={0.5} />
+                <pointLight position={[10, 10, 10]} intensity={1} />
+                <pointLight position={[-10, -10, -10]} intensity={0.5} color="#00d4ff" />
+                <OrbitControls
+                    enableZoom={false}
+                    enablePan={false}
+                    maxPolarAngle={Math.PI / 2}
+                    minPolarAngle={Math.PI / 2}
+                />
+                {children}
+            </Canvas>
+        </div>
+    );
+}
+
+export default Scene3D;
