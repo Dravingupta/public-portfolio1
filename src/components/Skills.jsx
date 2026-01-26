@@ -38,7 +38,8 @@ function SkillCategory({ title, skills, color }) {
 function Skills() {
     return (
         <section id="skills" className="min-h-screen py-20 px-4 relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-green-900/10 to-black pointer-events-none" />
+            {/* Background gradient removed for global 3D visibility */}
+            {/* <div className="absolute inset-0 bg-gradient-to-b from-black via-green-900/10 to-black pointer-events-none" /> */}
 
             <div className="max-w-6xl mx-auto relative z-10">
                 <motion.h2
