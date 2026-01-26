@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
+
 
 function ParallaxSection({ children, offset = 50, className = "" }) {
     const ref = useRef(null);

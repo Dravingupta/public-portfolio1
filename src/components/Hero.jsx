@@ -9,13 +9,9 @@ import HeroGeometry from './HeroGeometry';
 function Hero() {
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-            {/* 3D Background */}
+            {/* 3D Background - Moved to Global App.jsx */}
             <div className="absolute inset-0 z-0">
-                <Scene3D>
-                    <StarField />
-                    <HeroGeometry />
-                    <FloatingText text={portfolioConfig.name} position={[0, 0, 0]} />
-                </Scene3D>
+                {/* 3D Scene is now global */}
             </div>
 
             {/* Overlay Content */}
