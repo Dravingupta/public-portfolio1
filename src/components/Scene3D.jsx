@@ -32,7 +32,7 @@ function Scene3D({ children }) {
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
             <Canvas
                 camera={{ position: [0, 0, 5], fov: 75 }}
-                dpr={1}
+                dpr={[1, 2]}
                 gl={{
                     preserveDrawingBuffer: false,
                     antialias: false,

@@ -1,10 +1,12 @@
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
+// Lazy load non-critical sections
+const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
+const Skills = lazy(() => import('./components/Skills'));
+const Contact = lazy(() => import('./components/Contact'));
+
 import Scene3D from './components/Scene3D';
 import GlobalGeometry from './components/GlobalGeometry';
 import StarField from './components/StarField';
