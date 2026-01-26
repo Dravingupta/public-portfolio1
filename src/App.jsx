@@ -50,6 +50,8 @@ const isWebGLSupported = (() => {
   }
 })();
 
+import ParallaxSection from './components/ParallaxSection';
+
 function App() {
   if (!isWebGLSupported) {
     return <WebGLFallback />;
@@ -62,10 +64,22 @@ function App() {
       <Suspense fallback={<LoadingFallback />}>
         <main>
           <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Contact />
+
+          <ParallaxSection offset={30}>
+            <About />
+          </ParallaxSection>
+
+          <ParallaxSection offset={-30}>
+            <Projects />
+          </ParallaxSection>
+
+          <ParallaxSection offset={50}>
+            <Skills />
+          </ParallaxSection>
+
+          <ParallaxSection offset={30}>
+            <Contact />
+          </ParallaxSection>
         </main>
       </Suspense>
 

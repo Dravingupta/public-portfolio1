@@ -4,6 +4,8 @@ import Scene3D from './Scene3D';
 import FloatingText from './FloatingText';
 import StarField from './StarField';
 
+import HeroGeometry from './HeroGeometry';
+
 function Hero() {
     return (
         <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -11,6 +13,7 @@ function Hero() {
             <div className="absolute inset-0 z-0">
                 <Scene3D>
                     <StarField />
+                    <HeroGeometry />
                     <FloatingText text={portfolioConfig.name} position={[0, 0, 0]} />
                 </Scene3D>
             </div>
