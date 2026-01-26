@@ -2,7 +2,7 @@ import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-function StarField({ count = 5000 }) {
+function StarField({ count = 3000 }) {
     const points = useRef();
 
     const particlesPosition = useMemo(() => {
