@@ -41,9 +41,11 @@ function GlobalGeometry() {
         meshRef.current.position.z += (targetZ - meshRef.current.position.z) * 0.05;
 
         // --- ROTATION LOGIC ---
-        // Constant rotation + scroll influence
-        meshRef.current.rotation.x = time * 0.2 + progress * Math.PI;
-        meshRef.current.rotation.y = time * 0.3 + progress * Math.PI * 2;
+        // Controlled rotation based on scroll (Scrubbing) -> Premium feel
+        // We remove the fast time-based spin.
+        // Slight time-based drift for "alive" feel, but very slow.
+        meshRef.current.rotation.x = (time * 0.05) + (progress * Math.PI * 2);
+        meshRef.current.rotation.y = (time * 0.1) + (progress * Math.PI * 4);
 
         // --- COLOR LOGIC ---
         // Interpolate colors based on progress

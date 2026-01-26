@@ -71,7 +71,7 @@ function App() {
         <Scene3D>
           <StarField />
           <GlobalGeometry />
-          <FloatingText text={portfolioConfig.name} position={[0, 0, 0]} />
+          <FloatingText text={portfolioConfig.name} position={[0, 0.5, 0]} />
         </Scene3D>
       </div>
 

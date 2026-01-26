@@ -43,11 +43,9 @@ function FloatingText({ text, position = [0, 0, 0] }) {
                 {text}
                 <meshStandardMaterial
                     ref={materialRef}
-                    color="#00d4ff"
-                    emissive="#00d4ff"
-                    emissiveIntensity={0.5}
-                    metalness={0.8}
-                    roughness={0.2}
+                    color="#ffffff"
+                    metalness={0.9}
+                    roughness={0.1}
                     transparent
                     opacity={1}
                 />
