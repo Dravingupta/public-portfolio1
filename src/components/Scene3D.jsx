@@ -15,6 +15,7 @@ function Scene3D({ children }) {
             console.log('WebGL context restored successfully.');
         };
 
+
         const canvas = canvasRef.current?.querySelector('canvas');
         if (canvas) {
             canvas.addEventListener('webglcontextlost', handleContextLost);
@@ -28,7 +29,7 @@ function Scene3D({ children }) {
     }, []);
 
     return (
-        <div ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
             <Canvas
                 camera={{ position: [0, 0, 5], fov: 75 }}
                 gl={{
@@ -38,6 +39,9 @@ function Scene3D({ children }) {
                 }}
                 onCreated={({ gl }) => {
                     gl.setClearColor('#000000', 1);
+
+                    // Save real canvas element for context lost handling
+                    canvasRef.current = gl.domElement;
                 }}
             >
                 <ambientLight intensity={0.5} />
